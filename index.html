@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First AJAX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+   <p id="word"></p>
+<button id="btn">Get Only One</button>
+
+<script>
+    let myRequest = new XMLHttpRequest();
+
+    myRequest.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('word').innerHTML = myRequest.responseText;
+        }
+    };
+
+    myRequest.open("GET", "words.txt", true);
+    myRequest.send();
+
+    document.getElementById("btn").addEventListener("click", getOneWord);
+
+    function getOneWord() {
+       // console.log("IT WORKS");
+       myRequest.responseText.split(",");
+       console.log(myArray);
+    }
+
+</script>
+
+        </script>
+   
+  </body>
+</html>
